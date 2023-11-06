@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Arrays;
 import java.util.Random;
 
 public class PwValidator {
@@ -103,25 +104,22 @@ public class PwValidator {
 
     // PASSWORD GENERATOR
     public static String passwordGenerator() {
+        Random next = new Random();
 
         String[] letterSoup = { "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()-_+=<>?" };
-        String [] newPasswordArray = new String[20];
+        String[] newPasswordArray = new String[20];
 
-        for (int i = 0; i < newPasswordArray.length; i++ ) {
-            for (int j = 0; j < letterSoup.length; j++) {
-                newPasswordArray[i] = randomChar(letterSoup[j]);
-            }
-
+        for (int i = 0; i < newPasswordArray.length - 4; i = i + 4 ) {
+                newPasswordArray[i] = letterSoup[next.nextInt(letterSoup[0].length())];
+                newPasswordArray[i+1] = letterSoup[next.nextInt(letterSoup[1].length())];
+                newPasswordArray[i+2] = letterSoup[next.nextInt(letterSoup[2].length())];
+                newPasswordArray[i+3] = letterSoup[next.nextInt(letterSoup[3].length())];
         }
 
-
-        return "HansMeier!7";
+        return Arrays.toString(newPasswordArray);
     }
 
-    public static char randomChar(String buchstaben) {
-        Random next = new Random();
-        return buchstaben.charAt(next.nextInt(buchstaben.length() - 1));
-    }
+
 
 }
 
