@@ -42,6 +42,23 @@ public class PwValidator {
         }
         return false;
     }
+   /* public static boolean passwordUpperLowerCaseCheck(String password) {
+        boolean lowerCase = false;
+        boolean upperCase = false;
+
+        for (char letter : password.toCharArray()) {
+            if (Character.isLowerCase(letter)) {
+                lowerCase = true;
+            } else if (Character.isUpperCase(letter)) {
+                upperCase = true;
+            }
+            if (lowerCase && upperCase) {
+                break;
+            }
+        }
+
+        return lowerCase && upperCase;
+    }*/
 
 
 }
