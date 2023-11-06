@@ -128,6 +128,7 @@ class PwValidatorTest {
         //THEN
         assertFalse(actual);
     }
+
     @Test
     void usedPasswordsCheck_whenPasswordIs_PassWord1_thenReturnFalse() {
         //GIVEN
@@ -154,6 +155,27 @@ class PwValidatorTest {
         String password = "ABC2345678Xy!z";
         //WHEN
         boolean actual = PwValidator.usedPasswordsCheck(password);
+        //THEN
+        assertTrue(actual);
+    }
+
+    // SPECIAL CHARACTERS TEST
+    @Test
+    void specialCharactersCheck_whenPasswordIs_ABC2345678Xyz_thenReturnFalse() {
+        //GIVEN
+        String password = "ABC2345678Xyz";
+        //WHEN
+        boolean actual = PwValidator.specialCharacterCheck(password);
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void specialCharactersCheck_whenPasswordIs_ABC2345678XyAusrufezeichenz_thenReturnTrue() {
+        //GIVEN
+        String password = "ABC2345678Xy!z";
+        //WHEN
+        boolean actual = PwValidator.specialCharacterCheck(password);
         //THEN
         assertTrue(actual);
     }

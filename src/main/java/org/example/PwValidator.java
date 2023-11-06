@@ -7,7 +7,8 @@ public class PwValidator {
         return passwordLengthCheck(password)
                 && passwordNumberCheck(password)
                 && passwordUpLowerCaseCheck(password)
-                && usedPasswordsCheck(password);
+                && usedPasswordsCheck(password)
+                && specialCharacterCheck(password);
     }
 
     // EINZELNE CHECKMETHODEN
@@ -16,6 +17,7 @@ public class PwValidator {
         return password.length() > 7;
         // return password.length() > 7;
     }
+
     // PASSWORD NUMBER CHECK
     public static boolean passwordNumberCheck(String password) {
 
@@ -82,11 +84,21 @@ public class PwValidator {
                 "LuckyLuke23"
         };
 
-        for(String word:usedPasswordList) {
+        for (String word : usedPasswordList) {
             if (password.toLowerCase().contains(word.toLowerCase())) {
                 return false;
             }
         }
         return true;
     }
+
+    public static boolean specialCharacterCheck(String password) {
+        for (int i = 0; i < password.length(); i++) {
+            char letter = password.charAt(i);
+            if (!Character.isLetterOrDigit(letter)) return true;
+        }
+        return false;
+    }
+
 }
+
