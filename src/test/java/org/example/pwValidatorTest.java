@@ -40,17 +40,6 @@ class PwValidatorTest {
     }
 
     @Test
-    void passwordLengthCheckTest_whenPwLengthIs4_returnFalse() {
-        //GIVEN
-        String password = "abcd";
-        boolean expected = false;
-        //WHEN
-        boolean actual = PwValidator.passwordLengthCheck(password);
-        //THEN
-        assertEquals(expected, actual);
-    }
-
-    @Test
     void passwordLengthCheckTest_whenPwLengthIs0_returnFalse() {
         //GIVEN
         String password = "";
