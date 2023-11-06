@@ -53,8 +53,8 @@ class PwValidatorTest {
 
     // Password contains number check
     @Test
-    void passwordNumberCheck_whenPasswordIsSebastian13_returnTrue () {
-    //GIVEN
+    void passwordNumberCheck_whenPasswordIsSebastian13_returnTrue() {
+        //GIVEN
         String password = "Sebastian13";
         boolean expected = true;
         //WHEN
@@ -62,9 +62,10 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+
     @Test
-    void passwordNumberCheck_whenPasswordIsSebastian_returnFalse () {
-    //GIVEN
+    void passwordNumberCheck_whenPasswordIsSebastian_returnFalse() {
+        //GIVEN
         String password = "Sebastian";
         boolean expected = false;
         //WHEN
@@ -72,9 +73,10 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+
     @Test
-    void passwordNumberCheck_whenPasswordIsAnEmptyString_returnFalse () {
-    //GIVEN
+    void passwordNumberCheck_whenPasswordIsAnEmptyString_returnFalse() {
+        //GIVEN
         String password = "";
         boolean expected = false;
         //WHEN
@@ -82,4 +84,38 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+
+    @Test
+    void passwordUpLowerCaseCheck_whenPasswordIsSebastian13_returnTrue() {
+        //GIVEN
+        String password = "Sebastian13";
+        boolean expected = true;
+        //WHEN
+        boolean actual = PwValidator.passwordUpLowerCaseCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void passwordUpLowerCaseCheck_whenPasswordIs_sebastian13_returnFalse() {
+        //GIVEN
+        String password = "sebastian13";
+        boolean expected = false;
+        //WHEN
+        boolean actual = PwValidator.passwordUpLowerCaseCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void passwordUpLowerCaseCheck_whenPasswordIs_seBaStian13_returnTrue() {
+        //GIVEN
+        String password = "seBaStian13";
+        boolean expected = true;
+        //WHEN
+        boolean actual = PwValidator.passwordUpLowerCaseCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
 }
+
