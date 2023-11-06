@@ -1,6 +1,16 @@
 package org.example;
 
 public class PwValidator {
+
+    //HAUPTMETHODE PASSWORDCHECK
+    public static boolean passwordMainCheck(String password) {
+        return passwordLengthCheck(password)
+                && passwordNumberCheck(password)
+                && passwordUpLowerCaseCheck(password)
+                && usedPasswordsCheck(password);
+    }
+
+    // EINZELNE CHECKMETHODEN
     // PASSWORDLENGTHCHECK
     public static boolean passwordLengthCheck(String password) {
         return password.length() > 7;
