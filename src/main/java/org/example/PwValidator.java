@@ -1,4 +1,5 @@
 package org.example;
+import java.util.Random;
 
 public class PwValidator {
 
@@ -103,13 +104,23 @@ public class PwValidator {
     // PASSWORD GENERATOR
     public static String passwordGenerator() {
 
-        String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-        String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        String DIGITS = "0123456789";
-        String SPECIAL_CHARACTERS = "!@#$%^&*()-_+=<>?";
+        String[] letterSoup = { "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()-_+=<>?" };
+        String [] newPasswordArray = new String[20];
+
+        for (int i = 0; i < newPasswordArray.length; i++ ) {
+            for (int j = 0; j < letterSoup.length; j++) {
+                newPasswordArray[i] = randomChar(letterSoup[j]);
+            }
+
+        }
 
 
         return "HansMeier!7";
+    }
+
+    public static char randomChar(String buchstaben) {
+        Random next = new Random();
+        return buchstaben.charAt(next.nextInt(buchstaben.length() - 1));
     }
 
 }
