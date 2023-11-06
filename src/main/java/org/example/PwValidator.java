@@ -6,4 +6,10 @@ public class PwValidator {
         return true;
         // return password.length() > 7;
     }
+
+    public static boolean passwordNumberCheck(String password){
+        if (password.contains(CharSequence 1) == "1" )
+        return true; return false;
+
+    }
 }

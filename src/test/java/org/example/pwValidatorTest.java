@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class PwValidatorTest {
 
+    // Password length check
     @Test
     void passwordLengthCheckTest_whenPwLengthIs7_returnFalse() {
         //GIVEN
@@ -49,6 +50,19 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+
+    // Password contains number check
+    @Test
+    void passwordNumberCheck_whenPasswordIsSebastian13_returnTrue () {
+    //GIVEN
+        String password = "Sebastian13";
+        boolean expected = true;
+        //WHEN
+        boolean actual = PwValidator.passwordNumberCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
 }
+
 
 //
