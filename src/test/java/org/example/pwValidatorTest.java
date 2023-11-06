@@ -50,4 +50,15 @@ class PwValidatorTest {
         assertEquals(expected, actual);
     }
 
+    @Test
+    void passwordLengthCheckTest_whenPwLengthIs0_returnFalse() {
+        //GIVEN
+        String password = "";
+        boolean expected = false;
+        //WHEN
+        boolean actual = PwValidator.passwordLengthCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
+
 }
