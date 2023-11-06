@@ -62,7 +62,24 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+    @Test
+    void passwordNumberCheck_whenPasswordIsSebastian_returnFalse () {
+    //GIVEN
+        String password = "Sebastian";
+        boolean expected = false;
+        //WHEN
+        boolean actual = PwValidator.passwordNumberCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
+    @Test
+    void passwordNumberCheck_whenPasswordIsAnEmptyString_returnFalse () {
+    //GIVEN
+        String password = "";
+        boolean expected = false;
+        //WHEN
+        boolean actual = PwValidator.passwordNumberCheck(password);
+        //THEN
+        assertEquals(expected, actual);
+    }
 }
-
-
-//

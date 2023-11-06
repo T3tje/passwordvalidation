@@ -8,8 +8,14 @@ public class PwValidator {
     }
 
     public static boolean passwordNumberCheck(String password){
-        if (password.contains(CharSequence 1) == "1" )
-        return true; return false;
 
+        String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
+
+        for (String digit: digits) {
+            if (password.contains(digit)) {
+                return true;
+            }
+        }
+        return false;
     }
 }
