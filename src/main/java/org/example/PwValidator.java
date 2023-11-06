@@ -1,12 +1,13 @@
 package org.example;
 
 public class PwValidator {
+    // PASSWORDLENGTHCHECK
     public static boolean passwordLengthCheck(String password) {
         if (password.length() <= 7) return false;
         return true;
         // return password.length() > 7;
     }
-
+    // PASSWORD NUMBER CHECK
     public static boolean passwordNumberCheck(String password) {
 
         String[] digits = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"};
@@ -19,6 +20,7 @@ public class PwValidator {
         return false;
     }
 
+    //UPPER AND LOWER CASE CHECK
     public static boolean passwordUpLowerCaseCheck(String password) {
         return upperCheck(password) && lowerCheck(password);
     }
@@ -60,5 +62,23 @@ public class PwValidator {
         return lowerCase && upperCase;
     }*/
 
+    // USED PASSWORD CHECK
+
+
+    public static boolean usedPasswordsCheck(String password) {
+
+        String[] usedPasswordList = {
+                "Password1",
+                "12345678",
+                "LuckyLuke23"
+        };
+
+        for(String word:usedPasswordList) {
+            if (password.toLowerCase().contains(word.toLowerCase())) {
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

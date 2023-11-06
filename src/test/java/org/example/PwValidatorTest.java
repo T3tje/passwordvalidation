@@ -117,5 +117,45 @@ class PwValidatorTest {
         //THEN
         assertEquals(expected, actual);
     }
+
+    // USED PASSWORD TEST
+    @Test
+    void usedPasswordsCheck_whenPasswordIs_Password1_thenReturnFalse() {
+        //GIVEN
+        String password = "Password1";
+        //WHEN
+        boolean actual = PwValidator.usedPasswordsCheck(password);
+        //THEN
+        assertFalse(actual);
+    }
+    @Test
+    void usedPasswordsCheck_whenPasswordIs_PassWord1_thenReturnFalse() {
+        //GIVEN
+        String password = "PassWord1";
+        //WHEN
+        boolean actual = PwValidator.usedPasswordsCheck(password);
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void usedPasswordsCheck_whenPasswordIs_ABC12345678Xyz_thenReturnFalse() {
+        //GIVEN
+        String password = "ABC12345678Xyz";
+        //WHEN
+        boolean actual = PwValidator.usedPasswordsCheck(password);
+        //THEN
+        assertFalse(actual);
+    }
+
+    @Test
+    void usedPasswordsCheck_whenPasswordIs_ABC2345678XyAusrufezeichenz_thenReturnTrue() {
+        //GIVEN
+        String password = "ABC2345678Xy!z";
+        //WHEN
+        boolean actual = PwValidator.usedPasswordsCheck(password);
+        //THEN
+        assertTrue(actual);
+    }
 }
 
