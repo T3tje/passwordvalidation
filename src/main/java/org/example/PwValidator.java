@@ -100,5 +100,17 @@ public class PwValidator {
         return false;
     }
 
+    // PASSWORD GENERATOR
+    public static String passwordGenerator() {
+
+        String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
+        String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        String DIGITS = "0123456789";
+        String SPECIAL_CHARACTERS = "!@#$%^&*()-_+=<>?";
+
+
+        return "HansMeier!7";
+    }
+
 }
 

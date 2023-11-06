@@ -179,6 +179,19 @@ class PwValidatorTest {
         //THEN
         assertTrue(actual);
     }
+
+    //RANDOM PASSWORD GENERATOR CHECKER
+    @Test
+    void passwordGenerator_whenExecuted_then_passwordMainCheckReturnsTrue(){
+        //GIVEN
+        String generatedPassword = PwValidator.passwordGenerator();
+        //WHEN
+        boolean actual = PwValidator.passwordMainCheck(generatedPassword);
+        //THEN
+        assertTrue(actual);
+    }
 }
+
+
 
 //
