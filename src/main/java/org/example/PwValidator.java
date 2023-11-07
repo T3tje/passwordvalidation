@@ -105,21 +105,40 @@ public class PwValidator {
     // PASSWORD GENERATOR
     public static String passwordGenerator() {
         Random next = new Random();
+        int stringLength = 20;
 
         String[] letterSoup = { "abcdefghijklmnopqrstuvwxyz", "ABCDEFGHIJKLMNOPQRSTUVWXYZ", "0123456789", "!@#$%^&*()-_+=<>?" };
-        String[] newPasswordArray = new String[20];
+        char[] newPasswordArray = new char[stringLength];
 
-        for (int i = 0; i < newPasswordArray.length - 4; i = i + 4 ) {
-                newPasswordArray[i] = letterSoup[next.nextInt(letterSoup[0].length())];
-                newPasswordArray[i+1] = letterSoup[next.nextInt(letterSoup[1].length())];
-                newPasswordArray[i+2] = letterSoup[next.nextInt(letterSoup[2].length())];
-                newPasswordArray[i+3] = letterSoup[next.nextInt(letterSoup[3].length())];
+        for (int i = 0; i < newPasswordArray.length - 3; i = i + 4 ) {
+            newPasswordArray[i] = letterSoup[0].charAt(next.nextInt(letterSoup[0].length()));
+            newPasswordArray[i + 1] = letterSoup[1].charAt(next.nextInt(letterSoup[1].length()));
+            newPasswordArray[i + 2] = letterSoup[2].charAt(next.nextInt(letterSoup[2].length()));
+            newPasswordArray[i + 3] = letterSoup[3].charAt(next.nextInt(letterSoup[3].length()));
         }
 
-        return Arrays.toString(newPasswordArray);
+        //ARRAY OF CHARS INTO STRING
+
+        char[] shuffledArray = shuffleCharArray(newPasswordArray);
+
+        StringBuilder stringBuilder = new StringBuilder();
+        for (int i = 0; i < stringLength; i++) {
+            stringBuilder.append(newPasswordArray[i]);
+        }
+
+        return stringBuilder.toString();
     }
 
-
-
+    public static char[] shuffleCharArray(char[] array) {
+        Random rand = new Random();
+        for (int i = array.length - 1; i > 0; i--) {
+            int index = rand.nextInt(i + 1);
+            // Tausche die Zeichen an den Indizes i und index
+            char temp = array[i];
+            array[i] = array[index];
+            array[index] = temp;
+        }
+        return array;
+    }
 }
 
