@@ -123,7 +123,7 @@ public class PwValidator {
 
         StringBuilder stringBuilder = new StringBuilder();
         for (int i = 0; i < stringLength; i++) {
-            stringBuilder.append(newPasswordArray[i]);
+            stringBuilder.append(shuffledArray[i]);
         }
 
         return stringBuilder.toString();
